@@ -1,5 +1,9 @@
 package EDD;
 
+/**
+     *Esta clase representa mi estructira de datos Grafo
+     *@author Vyckhy
+    */
 public class Grafo {
 
     private int numVertices;
@@ -73,6 +77,12 @@ public class Grafo {
         }
     }
     
+    /**
+     *Metodo que devuelve el numero de vertices que tiene el arreglo de vertices 
+     *@param letra
+     *@return numero de vertices que tiene el arreglo
+     *
+    */
     public int buscarVertice(String letra){
         for (int i = 0; i < this.vertices.length; i++) {
             if(vertices[i] != null){
@@ -84,6 +94,11 @@ public class Grafo {
         return -1;
     }
     
+    /**
+     *Metodo que devuelve el numero de vertices que tiene el arreglo de vertices 
+     *@return numero de vertices que tiene el arreglo
+     *
+    */
     public int contarVertices(){
         int count = 0;
         for (int i = 0; i < this.numVertices; i++) {
