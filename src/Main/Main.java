@@ -6,6 +6,7 @@ package Main;
 
 import EDD.Lista;
 import EDD.Nodo;
+import Interfaces.Bienvenida;
 
 /**
  *
@@ -14,13 +15,14 @@ import EDD.Nodo;
 public class Main {
     
     public static void main(String[] args){
-        Object num = 13;
-        Nodo nodo = new Nodo(num);
-        System.out.println(nodo.getDato());
-        
-        Lista list = new Lista();
-        list.InsertarInicio(1);
-        list.mostrar();
+        Bienvenida v1 = new Bienvenida();
+//        Object num = 13;
+//        Nodo nodo = new Nodo(num);
+//        System.out.println(nodo.getDato());
+//        
+//        Lista list = new Lista();
+//        list.InsertarInicio(1);
+//        list.mostrar();
         
     }
     
