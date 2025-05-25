@@ -4,10 +4,22 @@
  */
 package Funciones;
 
+import EDD.Grafo;
 /**
  *
- * @author vyckh
+ * @author Iker
  */
 public class VerArbol {
-    
+    public static void mostrarArbol(Grafo grafo) {
+        System.out.println("Estructura del grafo:");
+        
+        int[][] matriz = grafo.getMatrizAdyacencia();
+        for (int i = 0; i < grafo.getNumVertices(); i++) {
+            System.out.print("Vertice " + i + ": ");
+            for (int j = 0; j < grafo.getNumVertices(); j++) {
+                System.out.print(matriz[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
 }
