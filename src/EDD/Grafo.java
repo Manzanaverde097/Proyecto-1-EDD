@@ -22,7 +22,7 @@ public class Grafo {
             }
         }
     }
-
+//javadoc
     public int getNumVertices() {
         return numVertices;
     }
