@@ -23,6 +23,7 @@ public class Grafo {
         }
     }
 //javadoc
+    //hola
     public int getNumVertices() {
         return numVertices;
     }
