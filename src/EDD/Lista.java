@@ -395,6 +395,13 @@ public class Lista {
         pFirst = null;
         size = 0;
     }
+    
+    
+    public Nodo eliminarFinal(){
+        Nodo aux = this.pLast;
+        this.EliminarPorPosicion(size-1);
+        return aux;
+    }
    
     
 }

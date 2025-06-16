@@ -9,6 +9,7 @@ public class Grafo {
     private int numVertices;
     private int[][] matrizAdyacencia;
     private Vertice[] vertices;
+    public String[] listaPalabras;
 
     //constructor
     public Grafo() {
@@ -52,7 +53,7 @@ public class Grafo {
         if(this.indiceVacio() != -1){
             this.vertices[this.indiceVacio()] = vertice;
         }else{
-            System.out.println("El aareglo esta lleno");
+            System.out.println("El arreglo esta lleno");
         }
     }
     

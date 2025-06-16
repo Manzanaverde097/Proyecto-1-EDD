@@ -4,6 +4,7 @@
  */
 package Interfaces;
 
+import EDD.Grafo;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -16,20 +17,26 @@ import javax.swing.JOptionPane;
  * @author vyckh
  */
 public class Cargar extends javax.swing.JFrame {
-
+static Grafo grafo;
+String texto;
     /**
-     * Creates new form Cargar
+     * Creates new form Bienvenida
      */
-    public Cargar() {
+    public Cargar(Grafo g) {
+        this.grafo = g;
+        this.texto = "";
         initComponents();
         this.setVisible(true);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
+//        j.add(jp);
+        
     }
     
     private void abrirArchivo() {
         String aux = "";
         String texto = "";
+        String palabra = "";
         try {
             /**
              * llamamos el metodo que permite cargar la ventana
@@ -48,8 +55,42 @@ public class Cargar extends javax.swing.JFrame {
             if (abre != null) {
                 FileReader archivos = new FileReader(abre);
                 BufferedReader lee = new BufferedReader(archivos);
+                int modo = 1;
                 while ((aux = lee.readLine()) != null) {
-                    texto += aux + "\n";
+                    if(aux.equals("dic")|| aux.equals("/dic")|| aux.equals("/tab")){
+                        continue;
+                    }else if(aux.equals("tab")){
+                        modo = 2;
+                    }else{
+                    
+                    if(modo == 1){
+                        texto += aux + "\n";
+                        palabra += aux+",";
+                    }else{
+                        String[] linea = aux.split(",");
+                        System.out.println(linea.length);
+                        for (int i = 0; i < linea.length; i++) {
+                            try{
+                                this.grafo.insertar(linea[i]);
+//                                System.out.println(linea[i]);
+                                
+                            }catch(Exception e){
+                                
+                            }
+                        }
+//                        String h = "";
+//                        for (int i = 0; i < 16; i++) {
+////                            System.out.println(i);
+//                            try{
+//                                h += grafo.getVertices()[i].getLetra()+ ", ";
+////                            System.out.println(grafo.getVertices()[i].getLetra());
+//                            }catch(Exception e){
+//                                break;
+//                            }
+//                        }
+//                        System.out.println(h);
+                    }
+                    }
                 }
                 lee.close();
             }
@@ -58,7 +99,10 @@ public class Cargar extends javax.swing.JFrame {
                     + "\nNo se ha encontrado el archivo",
                     "ADVERTENCIA!!!", JOptionPane.WARNING_MESSAGE);
         }
-        
+        String[] palabras = palabra.split(",");
+        System.out.println(palabras.length);
+        grafo.listaPalabras = palabras;
+        this.texto = texto;
         txtCargado.setText(texto);
     }
 
@@ -109,7 +153,7 @@ public class Cargar extends javax.swing.JFrame {
         });
         jPanel1.add(cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 390));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 390));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -120,6 +164,9 @@ public class Cargar extends javax.swing.JFrame {
 
     private void cargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarActionPerformed
         // TODO add your handling code here:
+        
+        Bienvenida m = new Bienvenida(grafo);
+        this.dispose();
     }//GEN-LAST:event_cargarActionPerformed
 
     /**
@@ -152,7 +199,7 @@ public class Cargar extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Cargar().setVisible(true);
+                new Cargar(grafo).setVisible(true);
             }
         });
     }

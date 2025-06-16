@@ -12,11 +12,13 @@ public class Vertice {
     private String letra;
     private int columna;
     private int fila;
+    public boolean visitado;
 
     public Vertice(String letra) {
         this.letra = letra;
         this.columna = -1;
         this.fila = -1;
+        this.visitado = false;
     }
 
     public String getLetra() {

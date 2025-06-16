@@ -4,9 +4,12 @@
  */
 package Main;
 
+import EDD.Grafo;
 import EDD.Lista;
 import EDD.Nodo;
 import Interfaces.Bienvenida;
+import Interfaces.JPanelMenu;
+import javax.swing.JFrame;
 
 /**
  *
@@ -15,7 +18,12 @@ import Interfaces.Bienvenida;
 public class Main {
     
     public static void main(String[] args){
-        Bienvenida v1 = new Bienvenida();
+        
+//        JPanelMenu jp = new JPanelMenu("2.jpg");
+//        JFrame j = new JFrame();
+//        j.add(jp);
+//        j.setVisible(true);
+        Bienvenida v1 = new Bienvenida(new Grafo());
 //        Object num = 13;
 //        Nodo nodo = new Nodo(num);
 //        System.out.println(nodo.getDato());

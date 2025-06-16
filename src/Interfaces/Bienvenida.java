@@ -4,21 +4,31 @@
  */
 package Interfaces;
 
+import EDD.Grafo;
+import java.awt.Graphics;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+
 /**
  *
  * @author vyckh
  */
 public class Bienvenida extends javax.swing.JFrame {
-
+    static Grafo grafo;
     /**
      * Creates new form Bienvenida
      */
-    public Bienvenida() {
+    public Bienvenida(Grafo g) {
+        this.grafo = g;
         initComponents();
         this.setVisible(true);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
+//        j.add(jp);
+        
     }
+    
+
 
     
 
@@ -32,35 +42,73 @@ public class Bienvenida extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        empezar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        empezar1 = new javax.swing.JButton();
+        empezar2 = new javax.swing.JButton();
+        empezar3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel1.setForeground(new java.awt.Color(0, 102, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        empezar.setText("Empezar");
-        empezar.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("MENU");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
+
+        empezar1.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 24)); // NOI18N
+        empezar1.setForeground(new java.awt.Color(0, 102, 102));
+        empezar1.setText("NUEVA PARTIDA");
+        empezar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                empezarActionPerformed(evt);
+                empezar1ActionPerformed(evt);
             }
         });
-        jPanel1.add(empezar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 340, 50));
+        jPanel1.add(empezar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 280, 50));
 
-        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
-        jLabel1.setText("SOPA DE LETRAS");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, -1));
+        empezar2.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 24)); // NOI18N
+        empezar2.setForeground(new java.awt.Color(0, 102, 102));
+        empezar2.setText("SALIR");
+        empezar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                empezar2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(empezar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, 230, 50));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 370));
+        empezar3.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 24)); // NOI18N
+        empezar3.setForeground(new java.awt.Color(0, 102, 102));
+        empezar3.setText("COMO JUGAR");
+        empezar3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                empezar3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(empezar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 230, 50));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void empezarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empezarActionPerformed
-        Cargar v2 = new Cargar();
+    private void empezar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empezar1ActionPerformed
+        // TODO add your handling code here:
+        NuevaPartida n = new NuevaPartida(grafo);
         this.dispose();
-    }//GEN-LAST:event_empezarActionPerformed
+    }//GEN-LAST:event_empezar1ActionPerformed
+
+    private void empezar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empezar2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_empezar2ActionPerformed
+
+    private void empezar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empezar3ActionPerformed
+        // TODO add your handling code here:
+        ComoJugar c = new ComoJugar(grafo);
+        this.dispose();
+    }//GEN-LAST:event_empezar3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -92,13 +140,15 @@ public class Bienvenida extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Bienvenida().setVisible(true);
+                new Bienvenida(grafo).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton empezar;
+    private javax.swing.JButton empezar1;
+    private javax.swing.JButton empezar2;
+    private javax.swing.JButton empezar3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
