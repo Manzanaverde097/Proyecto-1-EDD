@@ -4,6 +4,8 @@
  */
 package Interfaces;
 
+import Busquedas.BFS;
+import Busquedas.DFS;
 import EDD.Grafo;
 
 /**
@@ -26,6 +28,24 @@ static int modo;
         if(modo == 2){
             this.mode.setText("BFS");
         }
+        
+        this.A1.setText(grafo.getVertices()[0].getLetra());
+        this.A2.setText(grafo.getVertices()[1].getLetra());
+        this.A3.setText(grafo.getVertices()[2].getLetra());
+        this.A4.setText(grafo.getVertices()[3].getLetra());
+        this.A5.setText(grafo.getVertices()[4].getLetra());
+        this.A6.setText(grafo.getVertices()[5].getLetra());
+        this.A7.setText(grafo.getVertices()[6].getLetra());
+        this.A8.setText(grafo.getVertices()[7].getLetra());
+        this.A9.setText(grafo.getVertices()[8].getLetra());
+        this.A10.setText(grafo.getVertices()[9].getLetra());
+        this.A11.setText(grafo.getVertices()[10].getLetra());
+        this.A12.setText(grafo.getVertices()[11].getLetra());
+        this.A13.setText(grafo.getVertices()[12].getLetra());
+        this.A14.setText(grafo.getVertices()[13].getLetra());
+        this.A15.setText(grafo.getVertices()[14].getLetra());
+        this.A16.setText(grafo.getVertices()[15].getLetra());
+
 //        j.add(jp);
         
     }
@@ -42,28 +62,28 @@ static int modo;
         mode = new javax.swing.JLabel();
         empezar3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        empezar4 = new javax.swing.JButton();
-        empezar5 = new javax.swing.JButton();
-        empezar6 = new javax.swing.JButton();
-        empezar7 = new javax.swing.JButton();
-        empezar8 = new javax.swing.JButton();
-        empezar9 = new javax.swing.JButton();
-        empezar10 = new javax.swing.JButton();
-        empezar11 = new javax.swing.JButton();
-        empezar12 = new javax.swing.JButton();
-        empezar13 = new javax.swing.JButton();
-        empezar14 = new javax.swing.JButton();
-        empezar15 = new javax.swing.JButton();
-        empezar16 = new javax.swing.JButton();
-        empezar17 = new javax.swing.JButton();
-        empezar18 = new javax.swing.JButton();
+        A1 = new javax.swing.JButton();
+        A2 = new javax.swing.JButton();
+        A3 = new javax.swing.JButton();
+        A4 = new javax.swing.JButton();
+        A5 = new javax.swing.JButton();
+        A6 = new javax.swing.JButton();
+        A7 = new javax.swing.JButton();
+        A8 = new javax.swing.JButton();
+        A9 = new javax.swing.JButton();
+        A10 = new javax.swing.JButton();
+        A11 = new javax.swing.JButton();
+        A12 = new javax.swing.JButton();
+        A13 = new javax.swing.JButton();
+        A14 = new javax.swing.JButton();
+        A15 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         tiempo = new javax.swing.JLabel();
         empezar2 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         tiempo1 = new javax.swing.JLabel();
-        empezar19 = new javax.swing.JButton();
+        A16 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -92,155 +112,155 @@ static int modo;
         jLabel2.setText("Palabras encontradas:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 120, -1, -1));
 
-        empezar4.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
-        empezar4.setForeground(new java.awt.Color(0, 102, 102));
-        empezar4.setText("A");
-        empezar4.addActionListener(new java.awt.event.ActionListener() {
+        A1.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
+        A1.setForeground(new java.awt.Color(0, 102, 102));
+        A1.setText("A");
+        A1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                empezar4ActionPerformed(evt);
+                A1ActionPerformed(evt);
             }
         });
-        jPanel1.add(empezar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 90, 80));
+        jPanel1.add(A1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 90, 80));
 
-        empezar5.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
-        empezar5.setForeground(new java.awt.Color(0, 102, 102));
-        empezar5.setText("A");
-        empezar5.addActionListener(new java.awt.event.ActionListener() {
+        A2.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
+        A2.setForeground(new java.awt.Color(0, 102, 102));
+        A2.setText("A");
+        A2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                empezar5ActionPerformed(evt);
+                A2ActionPerformed(evt);
             }
         });
-        jPanel1.add(empezar5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 90, 80));
+        jPanel1.add(A2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 90, 80));
 
-        empezar6.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
-        empezar6.setForeground(new java.awt.Color(0, 102, 102));
-        empezar6.setText("A");
-        empezar6.addActionListener(new java.awt.event.ActionListener() {
+        A3.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
+        A3.setForeground(new java.awt.Color(0, 102, 102));
+        A3.setText("A");
+        A3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                empezar6ActionPerformed(evt);
+                A3ActionPerformed(evt);
             }
         });
-        jPanel1.add(empezar6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 90, 80));
+        jPanel1.add(A3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 90, 80));
 
-        empezar7.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
-        empezar7.setForeground(new java.awt.Color(0, 102, 102));
-        empezar7.setText("A");
-        empezar7.addActionListener(new java.awt.event.ActionListener() {
+        A4.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
+        A4.setForeground(new java.awt.Color(0, 102, 102));
+        A4.setText("A");
+        A4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                empezar7ActionPerformed(evt);
+                A4ActionPerformed(evt);
             }
         });
-        jPanel1.add(empezar7, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, 90, 80));
+        jPanel1.add(A4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, 90, 80));
 
-        empezar8.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
-        empezar8.setForeground(new java.awt.Color(0, 102, 102));
-        empezar8.setText("A");
-        empezar8.addActionListener(new java.awt.event.ActionListener() {
+        A5.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
+        A5.setForeground(new java.awt.Color(0, 102, 102));
+        A5.setText("A");
+        A5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                empezar8ActionPerformed(evt);
+                A5ActionPerformed(evt);
             }
         });
-        jPanel1.add(empezar8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 90, 80));
+        jPanel1.add(A5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 90, 80));
 
-        empezar9.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
-        empezar9.setForeground(new java.awt.Color(0, 102, 102));
-        empezar9.setText("A");
-        empezar9.addActionListener(new java.awt.event.ActionListener() {
+        A6.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
+        A6.setForeground(new java.awt.Color(0, 102, 102));
+        A6.setText("A");
+        A6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                empezar9ActionPerformed(evt);
+                A6ActionPerformed(evt);
             }
         });
-        jPanel1.add(empezar9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 90, 80));
+        jPanel1.add(A6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 90, 80));
 
-        empezar10.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
-        empezar10.setForeground(new java.awt.Color(0, 102, 102));
-        empezar10.setText("A");
-        empezar10.addActionListener(new java.awt.event.ActionListener() {
+        A7.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
+        A7.setForeground(new java.awt.Color(0, 102, 102));
+        A7.setText("A");
+        A7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                empezar10ActionPerformed(evt);
+                A7ActionPerformed(evt);
             }
         });
-        jPanel1.add(empezar10, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, 90, 80));
+        jPanel1.add(A7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, 90, 80));
 
-        empezar11.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
-        empezar11.setForeground(new java.awt.Color(0, 102, 102));
-        empezar11.setText("A");
-        empezar11.addActionListener(new java.awt.event.ActionListener() {
+        A8.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
+        A8.setForeground(new java.awt.Color(0, 102, 102));
+        A8.setText("A");
+        A8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                empezar11ActionPerformed(evt);
+                A8ActionPerformed(evt);
             }
         });
-        jPanel1.add(empezar11, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 90, 80));
+        jPanel1.add(A8, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 90, 80));
 
-        empezar12.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
-        empezar12.setForeground(new java.awt.Color(0, 102, 102));
-        empezar12.setText("A");
-        empezar12.addActionListener(new java.awt.event.ActionListener() {
+        A9.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
+        A9.setForeground(new java.awt.Color(0, 102, 102));
+        A9.setText("A");
+        A9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                empezar12ActionPerformed(evt);
+                A9ActionPerformed(evt);
             }
         });
-        jPanel1.add(empezar12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 90, 80));
+        jPanel1.add(A9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 90, 80));
 
-        empezar13.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
-        empezar13.setForeground(new java.awt.Color(0, 102, 102));
-        empezar13.setText("A");
-        empezar13.addActionListener(new java.awt.event.ActionListener() {
+        A10.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
+        A10.setForeground(new java.awt.Color(0, 102, 102));
+        A10.setText("A");
+        A10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                empezar13ActionPerformed(evt);
+                A10ActionPerformed(evt);
             }
         });
-        jPanel1.add(empezar13, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 90, 80));
+        jPanel1.add(A10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 90, 80));
 
-        empezar14.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
-        empezar14.setForeground(new java.awt.Color(0, 102, 102));
-        empezar14.setText("A");
-        empezar14.addActionListener(new java.awt.event.ActionListener() {
+        A11.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
+        A11.setForeground(new java.awt.Color(0, 102, 102));
+        A11.setText("A");
+        A11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                empezar14ActionPerformed(evt);
+                A11ActionPerformed(evt);
             }
         });
-        jPanel1.add(empezar14, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 300, 90, 80));
+        jPanel1.add(A11, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 300, 90, 80));
 
-        empezar15.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
-        empezar15.setForeground(new java.awt.Color(0, 102, 102));
-        empezar15.setText("A");
-        empezar15.addActionListener(new java.awt.event.ActionListener() {
+        A12.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
+        A12.setForeground(new java.awt.Color(0, 102, 102));
+        A12.setText("A");
+        A12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                empezar15ActionPerformed(evt);
+                A12ActionPerformed(evt);
             }
         });
-        jPanel1.add(empezar15, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 300, 90, 80));
+        jPanel1.add(A12, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 300, 90, 80));
 
-        empezar16.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
-        empezar16.setForeground(new java.awt.Color(0, 102, 102));
-        empezar16.setText("A");
-        empezar16.addActionListener(new java.awt.event.ActionListener() {
+        A13.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
+        A13.setForeground(new java.awt.Color(0, 102, 102));
+        A13.setText("A");
+        A13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                empezar16ActionPerformed(evt);
+                A13ActionPerformed(evt);
             }
         });
-        jPanel1.add(empezar16, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, 90, 80));
+        jPanel1.add(A13, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, 90, 80));
 
-        empezar17.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
-        empezar17.setForeground(new java.awt.Color(0, 102, 102));
-        empezar17.setText("A");
-        empezar17.addActionListener(new java.awt.event.ActionListener() {
+        A14.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
+        A14.setForeground(new java.awt.Color(0, 102, 102));
+        A14.setText("A");
+        A14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                empezar17ActionPerformed(evt);
+                A14ActionPerformed(evt);
             }
         });
-        jPanel1.add(empezar17, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, 90, 80));
+        jPanel1.add(A14, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, 90, 80));
 
-        empezar18.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
-        empezar18.setForeground(new java.awt.Color(0, 102, 102));
-        empezar18.setText("A");
-        empezar18.addActionListener(new java.awt.event.ActionListener() {
+        A15.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
+        A15.setForeground(new java.awt.Color(0, 102, 102));
+        A15.setText("A");
+        A15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                empezar18ActionPerformed(evt);
+                A15ActionPerformed(evt);
             }
         });
-        jPanel1.add(empezar18, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, 90, 80));
+        jPanel1.add(A15, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 90, 80));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -273,15 +293,15 @@ static int modo;
         tiempo1.setText("ms");
         jPanel1.add(tiempo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
-        empezar19.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
-        empezar19.setForeground(new java.awt.Color(0, 102, 102));
-        empezar19.setText("A");
-        empezar19.addActionListener(new java.awt.event.ActionListener() {
+        A16.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
+        A16.setForeground(new java.awt.Color(0, 102, 102));
+        A16.setText("A");
+        A16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                empezar19ActionPerformed(evt);
+                A16ActionPerformed(evt);
             }
         });
-        jPanel1.add(empezar19, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, 90, 80));
+        jPanel1.add(A16, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 400, 90, 80));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 570));
 
@@ -293,11 +313,17 @@ static int modo;
         long inicio = System.currentTimeMillis();
         //funcion de DFS 
         if(modo == 1){
-            
+            DFS d = new DFS(grafo);
+            for (int i = 0; i < grafo.listaPalabras.length; i++) {
+                this.jTextArea1.setText(this.jTextArea1.getText()+ d.busqueda(grafo.listaPalabras[i]));
+            }
         }
         //funcion de BFS
         else{
-            
+            BFS d = new BFS(grafo);
+            for (int i = 0; i < grafo.listaPalabras.length; i++) {
+                this.jTextArea1.setText(this.jTextArea1.getText()+ d.busqueda(grafo.listaPalabras[i]));
+            }
         }
         
         long fin = System.currentTimeMillis();
@@ -305,65 +331,65 @@ static int modo;
         this.tiempo.setText(String.valueOf(total));
     }//GEN-LAST:event_empezar3ActionPerformed
 
-    private void empezar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empezar4ActionPerformed
+    private void A1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_empezar4ActionPerformed
+    }//GEN-LAST:event_A1ActionPerformed
 
-    private void empezar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empezar5ActionPerformed
+    private void A2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_empezar5ActionPerformed
+    }//GEN-LAST:event_A2ActionPerformed
 
-    private void empezar6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empezar6ActionPerformed
+    private void A3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_empezar6ActionPerformed
+    }//GEN-LAST:event_A3ActionPerformed
 
-    private void empezar7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empezar7ActionPerformed
+    private void A4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_empezar7ActionPerformed
+    }//GEN-LAST:event_A4ActionPerformed
 
-    private void empezar8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empezar8ActionPerformed
+    private void A5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_empezar8ActionPerformed
+    }//GEN-LAST:event_A5ActionPerformed
 
-    private void empezar9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empezar9ActionPerformed
+    private void A6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A6ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_empezar9ActionPerformed
+    }//GEN-LAST:event_A6ActionPerformed
 
-    private void empezar10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empezar10ActionPerformed
+    private void A7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A7ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_empezar10ActionPerformed
+    }//GEN-LAST:event_A7ActionPerformed
 
-    private void empezar11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empezar11ActionPerformed
+    private void A8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A8ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_empezar11ActionPerformed
+    }//GEN-LAST:event_A8ActionPerformed
 
-    private void empezar12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empezar12ActionPerformed
+    private void A9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A9ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_empezar12ActionPerformed
+    }//GEN-LAST:event_A9ActionPerformed
 
-    private void empezar13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empezar13ActionPerformed
+    private void A10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A10ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_empezar13ActionPerformed
+    }//GEN-LAST:event_A10ActionPerformed
 
-    private void empezar14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empezar14ActionPerformed
+    private void A11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A11ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_empezar14ActionPerformed
+    }//GEN-LAST:event_A11ActionPerformed
 
-    private void empezar15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empezar15ActionPerformed
+    private void A12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A12ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_empezar15ActionPerformed
+    }//GEN-LAST:event_A12ActionPerformed
 
-    private void empezar16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empezar16ActionPerformed
+    private void A13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A13ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_empezar16ActionPerformed
+    }//GEN-LAST:event_A13ActionPerformed
 
-    private void empezar17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empezar17ActionPerformed
+    private void A14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A14ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_empezar17ActionPerformed
+    }//GEN-LAST:event_A14ActionPerformed
 
-    private void empezar18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empezar18ActionPerformed
+    private void A15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A15ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_empezar18ActionPerformed
+    }//GEN-LAST:event_A15ActionPerformed
 
     private void empezar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empezar2ActionPerformed
         // TODO add your handling code here:
@@ -371,9 +397,9 @@ static int modo;
         this.dispose();
     }//GEN-LAST:event_empezar2ActionPerformed
 
-    private void empezar19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empezar19ActionPerformed
+    private void A16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A16ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_empezar19ActionPerformed
+    }//GEN-LAST:event_A16ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -411,24 +437,24 @@ static int modo;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton empezar10;
-    private javax.swing.JButton empezar11;
-    private javax.swing.JButton empezar12;
-    private javax.swing.JButton empezar13;
-    private javax.swing.JButton empezar14;
-    private javax.swing.JButton empezar15;
-    private javax.swing.JButton empezar16;
-    private javax.swing.JButton empezar17;
-    private javax.swing.JButton empezar18;
-    private javax.swing.JButton empezar19;
+    private javax.swing.JButton A1;
+    private javax.swing.JButton A10;
+    private javax.swing.JButton A11;
+    private javax.swing.JButton A12;
+    private javax.swing.JButton A13;
+    private javax.swing.JButton A14;
+    private javax.swing.JButton A15;
+    private javax.swing.JButton A16;
+    private javax.swing.JButton A2;
+    private javax.swing.JButton A3;
+    private javax.swing.JButton A4;
+    private javax.swing.JButton A5;
+    private javax.swing.JButton A6;
+    private javax.swing.JButton A7;
+    private javax.swing.JButton A8;
+    private javax.swing.JButton A9;
     private javax.swing.JButton empezar2;
     private javax.swing.JButton empezar3;
-    private javax.swing.JButton empezar4;
-    private javax.swing.JButton empezar5;
-    private javax.swing.JButton empezar6;
-    private javax.swing.JButton empezar7;
-    private javax.swing.JButton empezar8;
-    private javax.swing.JButton empezar9;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
