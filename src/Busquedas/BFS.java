@@ -44,7 +44,7 @@ public class BFS {
         int cont = 1;
         String encontrada = letras[0];
         while (!recorrido.EsVacio() && cont < palabra.length()) {
-            Vertice actual = recorrido.eliminarInicio(); 
+            Vertice actual = (Vertice) recorrido.eliminarInicio(); 
             int indiceActual = grafo.buscarVertice(actual.getLetra());
 
             for (int i = 0; i < grafo.getNumVertices(); i++) { //

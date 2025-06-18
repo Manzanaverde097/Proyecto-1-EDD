@@ -5,7 +5,6 @@
 package Busquedas;
 
 import EDD.Grafo;
-import EDD.Vertice;
 
 /**
  *
@@ -25,7 +24,7 @@ public class DFS {
         }
         String resultado = "";
         for (int i = 0; i < grafo.getNumVertices(); i++) {
-            if(grafo.getVertices()[i].getLetra().equals(letras[0])){
+            if (String.valueOf(grafo.getVertices()[i].getLetra()).equals(letras[0])) {
                 resultado =  this.busqueda_rec(palabra, 1, i, letras[0]);
                 if(resultado.equals(palabra)){
                     return resultado;
@@ -41,7 +40,9 @@ public class DFS {
         }
         if( grafo.getVertices()[v] != null){
             for (int i = 0; i < grafo.getNumVertices(); i++) {
-                if( grafo.getMatrizAdyacencia()[v][i] == 1 && grafo.getVertices()[i].getLetra().equals(palabra.charAt(indice)) && !grafo.getVertices()[i].visitado){
+                if (grafo.getMatrizAdyacencia()[v][i] == 1 &&
+    String.valueOf(grafo.getVertices()[i].getLetra()).equals(String.valueOf(palabra.charAt(indice))) &&
+    !grafo.getVertices()[i].visitado) {
                    grafo.getVertices()[i].visitado = true;
                    String nuevoResultado = resultado + palabra.charAt(indice);
                     resultado = this.busqueda_rec(palabra, indice+ 1, i, nuevoResultado);

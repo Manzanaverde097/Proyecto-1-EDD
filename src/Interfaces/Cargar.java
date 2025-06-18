@@ -10,11 +10,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 import EDD.Lista;
 import EDD.Vertice;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 /**
  *
@@ -22,14 +19,13 @@ import javax.swing.JOptionPane;
  */
 public class Cargar extends javax.swing.JFrame {
 static Grafo grafo;
-String texto;
 static Lista<String> diccionarioDePalabras;
     /**
      * Creates new form Bienvenida
+     * @param g
      */
     public Cargar(Grafo g) {
-        this.grafo = g;
-        this.texto = "";
+        Cargar.grafo = g;
         initComponents();
         this.setVisible(true);
         this.setResizable(false);
@@ -38,10 +34,6 @@ static Lista<String> diccionarioDePalabras;
     }
     
     private void abrirArchivo() {
-        String aux = "";
-        String texto = "";
-        String palabra = "";
-
         try {
             JFileChooser file = new JFileChooser();
             file.showOpenDialog(this);
@@ -50,16 +42,22 @@ static Lista<String> diccionarioDePalabras;
 
             if (abre != null) {
                 FileReader archivos = new FileReader(abre);
-                BufferedReader lee = new BufferedReader(archivos);
-                int modo = 1;
-
+                try (BufferedReader lee = new BufferedReader(new FileReader(abre))) { 
+    // Código dentro del bloque try
+}
                 // --- AÑADIR: Declaramos el 'indice' aquí ---
                 int indice = 0; // Este número nos ayudará a identificar cada casilla del 0 al 15
 
                 // --- ESTE ES TU CÓDIGO EXISTENTE: El bucle principal que lee el archivo ---
-                while ((aux = lee.readLine()) != null) {
+                String aux = ""; // Declara aux antes del try
+                try (BufferedReader lee = new BufferedReader(new FileReader(abre))) { 
+                    while ((aux = lee.readLine()) != null) {
+                        // Código de procesamiento del archivo
+                    }
+                } catch (IOException ex) { 
+                JOptionPane.showMessageDialog(this, "Error al leer el archivo: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                }
                     if (aux.equals("dic") || aux.equals("/dic") || aux.equals("/dic")) {
-                        modo = 1; // Modo diccionario
                         // --- ESTE ES TU CÓDIGO EXISTENTE: Lógica para cargar el diccionario ---
                         diccionarioDePalabras = new Lista<>(); // Reinicia el diccionario
                         while ((aux = lee.readLine()) != null) { // Lee las palabras del diccionario
@@ -68,7 +66,6 @@ static Lista<String> diccionarioDePalabras;
                         JOptionPane.showMessageDialog(this, "Diccionario cargado exitosamente. (" + diccionarioDePalabras.tamano() + " palabras)", "Carga Exitosa", JOptionPane.INFORMATION_MESSAGE);
 
                     } else if (aux.equals("tab")) {
-                        modo = 2; // Modo tablero
 
                         // --- AÑADIR: Bucle para leer las 4 líneas del tablero ---
                         for (int fila = 0; fila < 4; fila++) {
