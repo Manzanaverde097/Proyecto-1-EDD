@@ -9,23 +9,24 @@ package EDD;
  * @author vyckh
  */
 public class Vertice {
-    private String letra;
+    private char letra;
     private int columna;
     private int fila;
     public boolean visitado;
-
-    public Vertice(String letra) {
+    public int indice;
+    
+    public Vertice(char letra) {
         this.letra = letra;
         this.columna = -1;
         this.fila = -1;
         this.visitado = false;
     }
 
-    public String getLetra() {
+    public char getLetra() {
         return letra;
     }
 
-    public void setLetra(String letra) {
+    public void setLetra(char letra) {
         this.letra = letra;
     }
 
@@ -44,4 +45,17 @@ public class Vertice {
     public void setFila(int fila) {
         this.fila = fila;
     }  
+    
+    public boolean isVisitado() {
+        return visitado;
+    }
+    
+    public void setVisitado(boolean visitado) {
+        this.visitado = visitado;
+    }
+
+     public int getIndice() {
+        return indice;
+    }
+    
 }

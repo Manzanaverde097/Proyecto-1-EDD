@@ -23,7 +23,7 @@ public class BFS {
         for (int i = 0; i < palabra.length(); i++) {
             if(String.valueOf(palabra.charAt(0)).equals(grafo.getVertices()[i].getLetra())){
                 Lista recorrido = new Lista();
-                recorrido.InsertarInicio(grafo.getVertices()[i]);
+                recorrido.InsertarFinal(grafo.getVertices()[i]);
                 grafo.getVertices()[i].visitado = true;
                 String resultado = this.busquedaBFS(palabra, recorrido);
                 if(resultado.equals(palabra)){
@@ -44,25 +44,33 @@ public class BFS {
         int cont = 1;
         String encontrada = letras[0];
         while (!recorrido.EsVacio() && cont < palabra.length()) {
-            Vertice actual = (Vertice) recorrido.eliminarFinal().getDato(); 
-            int indice = grafo.buscarVertice(actual.getLetra());
+            Vertice actual = recorrido.eliminarInicio(); 
+            int indiceActual = grafo.buscarVertice(actual.getLetra());
 
-            for (int i = 0; i < grafo.getNumVertices(); i++) {
-                if (grafo.getMatrizAdyacencia()[indice][i] == 1 && !grafo.getVertices()[i].visitado && grafo.getVertices()[i].getLetra().equals(letras[cont])) {
-                    encontrada += grafo.getVertices()[i].getLetra();
-                    recorrido.InsertarFinal(grafo.getVertices()[i]);
-                    grafo.getVertices()[i].visitado = true;
+            for (int i = 0; i < grafo.getNumVertices(); i++) { //
+                if (grafo.getMatrizAdyacencia()[indiceActual][i] == 1 && // Hay adyacencia
+                    !grafo.getVertices()[i].isVisitado() && // El vecino no ha sido visitado
+                    Character.toLowerCase(grafo.getVertices()[i].getLetra()) == Character.toLowerCase(letras[cont].charAt(0))) { // Letra coincide
 
-                    if (encontrada.equals(palabra)) {
-                        return encontrada; 
+                    // Formar la palabra (esto es más de un algoritmo de búsqueda de palabras en una ruta)
+                    encontrada += grafo.getVertices()[i].getLetra(); //
+                    recorrido.InsertarFinal(grafo.getVertices()[i]); // Añade el vecino a la cola (para BFS)
+                    grafo.getVertices()[i].setVisitado(true); //
+
+                    // Si la palabra completa se ha formado
+                    if (encontrada.equals(palabra)) { //
+                        return encontrada; //
                     }
                 }
             }
-            cont++;
+            cont++; // Incrementa para la siguiente letra de la palabra buscada
         }
 
-        return null; 
+        return null; // Si la palabra no se encontró completamente a través de este camino
     }
 
     
 }
+
+    
+

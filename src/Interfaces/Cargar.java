@@ -11,7 +11,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-
+import EDD.Lista;
+import EDD.Vertice;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /**
  *
  * @author vyckh
@@ -19,6 +23,7 @@ import javax.swing.JOptionPane;
 public class Cargar extends javax.swing.JFrame {
 static Grafo grafo;
 String texto;
+static Lista<String> diccionarioDePalabras;
     /**
      * Creates new form Bienvenida
      */
@@ -29,7 +34,6 @@ String texto;
         this.setVisible(true);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-//        j.add(jp);
         
     }
     
@@ -37,75 +41,77 @@ String texto;
         String aux = "";
         String texto = "";
         String palabra = "";
+
         try {
-            /**
-             * llamamos el metodo que permite cargar la ventana
-             */
             JFileChooser file = new JFileChooser();
             file.showOpenDialog(this);
-            /**
-             * abrimos el archivo seleccionado
-             */
+
             File abre = file.getSelectedFile();
 
-            /**
-             * recorremos el archivo, lo leemos para plasmarlo en el area de
-             * texto
-             */
             if (abre != null) {
                 FileReader archivos = new FileReader(abre);
                 BufferedReader lee = new BufferedReader(archivos);
                 int modo = 1;
+
+                // --- AÑADIR: Declaramos el 'indice' aquí ---
+                int indice = 0; // Este número nos ayudará a identificar cada casilla del 0 al 15
+
+                // --- ESTE ES TU CÓDIGO EXISTENTE: El bucle principal que lee el archivo ---
                 while ((aux = lee.readLine()) != null) {
-                    if(aux.equals("dic")|| aux.equals("/dic")|| aux.equals("/tab")){
-                        continue;
-                    }else if(aux.equals("tab")){
-                        modo = 2;
-                    }else{
-                    
-                    if(modo == 1){
-                        texto += aux + "\n";
-                        palabra += aux+",";
-                    }else{
-                        String[] linea = aux.split(",");
-                        System.out.println(linea.length);
-                        for (int i = 0; i < linea.length; i++) {
-                            try{
-                                this.grafo.insertar(linea[i]);
-//                                System.out.println(linea[i]);
-                                
-                            }catch(Exception e){
-                                
+                    if (aux.equals("dic") || aux.equals("/dic") || aux.equals("/dic")) {
+                        modo = 1; // Modo diccionario
+                        // --- ESTE ES TU CÓDIGO EXISTENTE: Lógica para cargar el diccionario ---
+                        diccionarioDePalabras = new Lista<>(); // Reinicia el diccionario
+                        while ((aux = lee.readLine()) != null) { // Lee las palabras del diccionario
+                            diccionarioDePalabras.InsertarFinal(aux.trim().toUpperCase());
+                        }
+                        JOptionPane.showMessageDialog(this, "Diccionario cargado exitosamente. (" + diccionarioDePalabras.tamano() + " palabras)", "Carga Exitosa", JOptionPane.INFORMATION_MESSAGE);
+
+                    } else if (aux.equals("tab")) {
+                        modo = 2; // Modo tablero
+
+                        // --- AÑADIR: Bucle para leer las 4 líneas del tablero ---
+                        for (int fila = 0; fila < 4; fila++) {
+                            // --- MODIFICAR: Lee la siguiente línea para la fila del tablero ---
+                            if ((aux = lee.readLine()) != null) { // 'aux' ahora contiene la línea de letras (ej. "ABCD")
+                                // --- AÑADIR: Bucle para recorrer cada letra en la línea ---
+                                for (int columna = 0; columna < 4; columna++) {
+                                    char letra = aux.charAt(columna); // Obtenemos la letra
+
+                                    // --- AÑADIR: Creamos el Vertice y lo agregamos al grafo ---
+                                    Vertice v = new Vertice(letra); // Creamos una casilla con la letra y su número
+                                    grafo.agregarVertice(v); // Ponemos la casilla en nuestro mapa (grafo)
+                                    indice++; // Aumentamos el número para la siguiente casilla
+                                }
+                            } else {
+                                JOptionPane.showMessageDialog(this, "El archivo del tablero no tiene suficientes líneas.", "Error de Archivo", JOptionPane.ERROR_MESSAGE);
+                                lee.close();
+                                return;
                             }
                         }
-//                        String h = "";
-//                        for (int i = 0; i < 16; i++) {
-////                            System.out.println(i);
-//                            try{
-//                                h += grafo.getVertices()[i].getLetra()+ ", ";
-////                            System.out.println(grafo.getVertices()[i].getLetra());
-//                            }catch(Exception e){
-//                                break;
-//                            }
-//                        }
-//                        System.out.println(h);
-                    }
-                    }
-                }
-                lee.close();
-            }
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, ex + ""
-                    + "\nNo se ha encontrado el archivo",
-                    "ADVERTENCIA!!!", JOptionPane.WARNING_MESSAGE);
-        }
-        String[] palabras = palabra.split(",");
-        System.out.println(palabras.length);
-        grafo.listaPalabras = palabras;
-        this.texto = texto;
-        txtCargado.setText(texto);
-    }
+                        // --- AÑADIR: Después de que todas las casillas están en el grafo, ¡las conectamos! ---
+                        grafo.establecerAdyacencias(); // Conecta las casillas vecinas automáticamente
 
+                        JOptionPane.showMessageDialog(this, "Tablero cargado exitosamente.", "Carga Exitosa", JOptionPane.INFORMATION_MESSAGE);
+
+                    } else {
+                        // --- ESTE ES TU CÓDIGO EXISTENTE: Si el formato no es reconocido ---
+                        JOptionPane.showMessageDialog(this, "Formato de archivo desconocido. La primera línea debe ser 'dic' o 'tab'.", "Error de Formato", JOptionPane.ERROR_MESSAGE);
+                        lee.close();
+                        return;
+                    }
+                    // --- AÑADIR: Salimos del bucle principal 'while' una vez que hemos procesado un bloque ('dic' o 'tab') ---
+                    break;
+                }
+
+                lee.close(); // Cerramos el archivo una vez que terminamos de leerlo
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al cargar el archivo: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -125,17 +131,18 @@ String texto;
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
-        jLabel1.setText("Cargar");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, -1, -1));
+        jLabel1.setText("Cargue el txt por favor:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 340, 40));
 
         txtCargado.setColumns(20);
         txtCargado.setRows(5);
         jScrollPane1.setViewportView(txtCargado);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 310, 240));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 310, 240));
 
         buscar.setText("Buscar TXT");
         buscar.addActionListener(new java.awt.event.ActionListener() {
@@ -143,7 +150,7 @@ String texto;
                 buscarActionPerformed(evt);
             }
         });
-        jPanel1.add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
+        jPanel1.add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, -1, -1));
 
         cargar.setText("Cargar");
         cargar.addActionListener(new java.awt.event.ActionListener() {
@@ -151,15 +158,22 @@ String texto;
                 cargarActionPerformed(evt);
             }
         });
-        jPanel1.add(cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, -1, -1));
+        jPanel1.add(cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 360, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 390));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    catch (IOException ex) {
+        Logger.getLogger(Cargar.class.getName()).log(Level.SEVERE, null, ex);
+}
+    catch (IOException ex) {
+        Logger.getLogger(Cargar.class.getName()).log(Level.SEVERE, null, ex);
+
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
         this.abrirArchivo(); 
+
     }//GEN-LAST:event_buscarActionPerformed
 
     private void cargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarActionPerformed

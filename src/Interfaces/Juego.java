@@ -7,7 +7,7 @@ package Interfaces;
 import Busquedas.BFS;
 import Busquedas.DFS;
 import EDD.Grafo;
-
+import EDD.Lista;
 /**
  *
  * @author sofia
@@ -15,12 +15,14 @@ import EDD.Grafo;
 public class Juego extends javax.swing.JFrame {
 static Grafo grafo;
 static int modo;
+private Lista<String> diccionario;
     /**
      * Creates new form Bienvenida
      */
     public Juego(Grafo g, int modo) {
         this.grafo = g;
         this.modo = modo;
+       
         initComponents();
         this.setVisible(true);
         this.setResizable(false);
@@ -29,22 +31,24 @@ static int modo;
             this.mode.setText("BFS");
         }
         
-        this.A1.setText(grafo.getVertices()[0].getLetra());
-        this.A2.setText(grafo.getVertices()[1].getLetra());
-        this.A3.setText(grafo.getVertices()[2].getLetra());
-        this.A4.setText(grafo.getVertices()[3].getLetra());
-        this.A5.setText(grafo.getVertices()[4].getLetra());
-        this.A6.setText(grafo.getVertices()[5].getLetra());
-        this.A7.setText(grafo.getVertices()[6].getLetra());
-        this.A8.setText(grafo.getVertices()[7].getLetra());
-        this.A9.setText(grafo.getVertices()[8].getLetra());
-        this.A10.setText(grafo.getVertices()[9].getLetra());
-        this.A11.setText(grafo.getVertices()[10].getLetra());
-        this.A12.setText(grafo.getVertices()[11].getLetra());
-        this.A13.setText(grafo.getVertices()[12].getLetra());
-        this.A14.setText(grafo.getVertices()[13].getLetra());
-        this.A15.setText(grafo.getVertices()[14].getLetra());
-        this.A16.setText(grafo.getVertices()[15].getLetra());
+       if (modo == 2) { // Asegúrate de que esto esté dentro de un bloque donde solo se muestra el tablero
+    this.A1.setText(String.valueOf(grafo.getVertices()[0].getLetra()));
+    this.A2.setText(String.valueOf(grafo.getVertices()[1].getLetra()));
+    this.A3.setText(String.valueOf(grafo.getVertices()[2].getLetra()));
+    this.A4.setText(String.valueOf(grafo.getVertices()[3].getLetra()));
+    this.A5.setText(String.valueOf(grafo.getVertices()[4].getLetra()));
+    this.A6.setText(String.valueOf(grafo.getVertices()[5].getLetra()));
+    this.A7.setText(String.valueOf(grafo.getVertices()[6].getLetra()));
+    this.A8.setText(String.valueOf(grafo.getVertices()[7].getLetra()));
+    this.A9.setText(String.valueOf(grafo.getVertices()[8].getLetra()));
+    this.A10.setText(String.valueOf(grafo.getVertices()[9].getLetra()));
+    this.A11.setText(String.valueOf(grafo.getVertices()[10].getLetra()));
+    this.A12.setText(String.valueOf(grafo.getVertices()[11].getLetra()));
+    this.A13.setText(String.valueOf(grafo.getVertices()[12].getLetra()));
+    this.A14.setText(String.valueOf(grafo.getVertices()[13].getLetra()));
+    this.A15.setText(String.valueOf(grafo.getVertices()[14].getLetra()));
+    this.A16.setText(String.valueOf(grafo.getVertices()[15].getLetra()));
+}
 
 //        j.add(jp);
         

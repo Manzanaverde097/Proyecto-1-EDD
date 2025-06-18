@@ -1,47 +1,31 @@
 
 package EDD;
 
-public class Nodo {
-    
-    //Atributos
-     private Object dato; //Variable donde se guardará el valor
-     private Nodo pnext; //Variable para enlazar los nodos
-    
-    //Constructor vacio
-    public Nodo(){
-       this.dato = null;
-       this.pnext = null; 
-    }
-    
-    //Constructor de la clase nodo si le paso solo la info
-    public Nodo(Object dato) {
-        this.dato = dato;
-        this.pnext = null;
-    }
-    
-    //Constructor Completo
-    public Nodo(Object dato, Nodo node){
-        this.dato = dato;
-        this.pnext = node;
+public class Nodo<T> {
+    public T valor; // El valor que almacena el nodo es de tipo T
+    public Nodo<T> siguiente; // La referencia al siguiente nodo es también de tipo Nodo<T>
+     
+    public Nodo(T valor) {
+    this.valor = valor;
+    this.siguiente = null;
+        }
+
+    public T getValor() {
+        return valor;
     }
 
-    public Object getDato() {
-        return dato;
+    public void setValor(T valor) {
+        this.valor = valor;
     }
 
-    public void setDato(Object dato) {
-        this.dato = dato;
+    public Nodo<T> getSiguiente() {
+        return siguiente;
     }
 
-    public Nodo getPnext() {
-        return pnext;
-    }
-
-    public void setPnext(Nodo pnext) {
-        this.pnext = pnext;
+    public void setSiguiente(Nodo<T> siguiente) {
+        this.siguiente = siguiente;
     }
     
     
-    
-    
-}
+    }
+   

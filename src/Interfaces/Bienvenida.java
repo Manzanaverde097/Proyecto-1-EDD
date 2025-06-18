@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author vyckh
+ * @author vyckhy
  */
 public class Bienvenida extends javax.swing.JFrame {
     static Grafo grafo;
@@ -46,18 +46,20 @@ public class Bienvenida extends javax.swing.JFrame {
         empezar1 = new javax.swing.JButton();
         empezar2 = new javax.swing.JButton();
         empezar3 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
-        jPanel1.setForeground(new java.awt.Color(0, 102, 102));
+        jPanel1.setForeground(new java.awt.Color(0, 51, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("MENU");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, -1, -1));
 
         empezar1.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 24)); // NOI18N
         empezar1.setForeground(new java.awt.Color(0, 102, 102));
@@ -67,7 +69,7 @@ public class Bienvenida extends javax.swing.JFrame {
                 empezar1ActionPerformed(evt);
             }
         });
-        jPanel1.add(empezar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 280, 50));
+        jPanel1.add(empezar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, 280, 50));
 
         empezar2.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 24)); // NOI18N
         empezar2.setForeground(new java.awt.Color(0, 102, 102));
@@ -77,7 +79,7 @@ public class Bienvenida extends javax.swing.JFrame {
                 empezar2ActionPerformed(evt);
             }
         });
-        jPanel1.add(empezar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, 230, 50));
+        jPanel1.add(empezar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 230, 50));
 
         empezar3.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 24)); // NOI18N
         empezar3.setForeground(new java.awt.Color(0, 102, 102));
@@ -87,9 +89,15 @@ public class Bienvenida extends javax.swing.JFrame {
                 empezar3ActionPerformed(evt);
             }
         });
-        jPanel1.add(empezar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 230, 50));
+        jPanel1.add(empezar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 230, 50));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 40, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
+        jLabel3.setBackground(new java.awt.Color(0, 102, 255));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logo unimet.png"))); // NOI18N
+        jLabel3.setMaximumSize(new java.awt.Dimension(300, 144));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 790, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -150,6 +158,8 @@ public class Bienvenida extends javax.swing.JFrame {
     private javax.swing.JButton empezar2;
     private javax.swing.JButton empezar3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
