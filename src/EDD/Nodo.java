@@ -3,7 +3,7 @@ package EDD;
 /**
  * Clase que representa un nodo individual en una lista enlazada genérica.
  * Cada nodo contiene un valor de tipo genérico T y una referencia al siguiente nodo en la secuencia.
- *
+ *@author Vyckhy
  * @param <T> El tipo de dato del valor que se almacenará en este nodo.
  */
 public class Nodo<T> {

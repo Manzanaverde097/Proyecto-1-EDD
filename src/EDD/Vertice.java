@@ -8,7 +8,7 @@ package EDD;
  * Cada vértice contiene una letra, su posición en el tablero (columna y fila),
  * un estado de visita para los algoritmos de búsqueda, y un índice único.
  *
- * @author vyckh
+ * @author vyckhy
  */
 public class Vertice {
     //atributos

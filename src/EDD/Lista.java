@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
  * Implementación de una lista enlazada 
  * Esta clase permite almacenar elementos de cualquier tipo (T) en una secuencia lineal,
  * con operaciones para insertar al final, obtener un elemento por índice y eliminar el primer elemento.
- *
+ *@author Vyckhy
  * @param <T> El tipo de elementos que se almacenarán en la lista.
  */
 public class Lista<T> {

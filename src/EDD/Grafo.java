@@ -21,7 +21,7 @@ public class Grafo {
      */
     private int[][] matrizAdyacencia;
      /**
-     * Arreglo que almacena los objetos {@link Vertice} del grafo.
+     * Arreglo que almacena los objetos del grafo.
      * El índice en este arreglo corresponde al índice único del vértice.
      */
     private Vertice[] vertices;
@@ -98,7 +98,7 @@ public class Grafo {
 /**
      * Obtiene el arreglo de todos los vértices del grafo.
      *
-     * @return El arreglo de objetos {@link Vertice}.
+     * @return El arreglo de objetos vertice.
      */
     public Vertice[] getVertices() {
         return vertices;
@@ -113,7 +113,7 @@ public class Grafo {
     }
     /**
      * Inserta un nuevo vértice en la primera posición vacía disponible en el arreglo de vértices.
-     * Este método crea un nuevo {@link Vertice} utilizando la letra y el índice encontrado.
+     * Este método crea un nuevo vertice utilizando la letra y el índice encontrado.
      * Si el arreglo está lleno, imprime un mensaje de error.
      *
      * @param letra La letra del nuevo vértice a insertar.

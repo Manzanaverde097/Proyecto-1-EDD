@@ -9,12 +9,24 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.List;
-
 /**
- *
- * @author iker
+ * Clase encargada de guardar una lista de palabras en un archivo de texto.
+ * 
+ * Utiliza reflexión para acceder a una lista privada dentro del objeto {@code Lista}
+ * y escribe su contenido línea por línea en un archivo llamado {@code diccionario.txt}.
+ * 
+ * Esta clase está diseñada para exportar diccionarios o conjuntos de palabras a texto plano.
+ * 
+ * @author Iker
  */
 public class EscribirTXT {
+    
+    /**
+     * Guarda las palabras contenidas en el objeto {@code Lista} en un archivo de texto.
+     * 
+     * @param palabras Objeto {@code Lista} que contiene las palabras a guardar.
+     * @throws NullPointerException Si el campo {@code elementos} es null.
+     */
     public static void guardarDiccionario(Lista palabras) {
         try {
             Field field = Lista.class.getDeclaredField("elementos");
