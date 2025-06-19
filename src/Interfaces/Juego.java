@@ -16,6 +16,7 @@ public class Juego extends javax.swing.JFrame {
 static Grafo grafo;
 static int modo;
 private Lista<String> diccionario;
+
     /**
      * Creates new form Bienvenida
      */
