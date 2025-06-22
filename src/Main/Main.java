@@ -19,18 +19,8 @@ public class Main {
     
     public static void main(String[] args){
         
-//        JPanelMenu jp = new JPanelMenu("2.jpg");
-//        JFrame j = new JFrame();
-//        j.add(jp);
-//        j.setVisible(true);
         Bienvenida v1 = new Bienvenida(new Grafo());
-//        Object num = 13;
-//        Nodo nodo = new Nodo(num);
-//        System.out.println(nodo.getDato());
-//        
-//        Lista list = new Lista();
-//        list.InsertarInicio(1);
-//        list.mostrar();
+
         
     }
     
