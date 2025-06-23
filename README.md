@@ -18,6 +18,10 @@ La aplicación está diseñada con una interfaz gráfica amigable usando Java Sw
 - Guardar diccionario actualizado: El usuario puede guardar los cambios realizados sobre el diccionario original.
 
 ---
+Pasos para jugar
+1 Aparecera una ventana que dira salir, como jugar(una guia) y el empezar juego
+2 Al darle a empezar juego, cargue el txt, y volvera a aparecer en la ventana anterior, dele de nuevo a empezar juego y ahi le saldra el modo bfs y dfs disponible
+3. puede agregar palabras nuevas al diccionario, anadiendolar en el menu de juego, y tambien podra ver el recorrido
 
 **Lógica y estructura técnica**
 - Modelo de grafo: Cada letra del tablero es un vértice en un grafo no dirigido, conectado a sus letras adyacentes (incluyendo diagonales).
