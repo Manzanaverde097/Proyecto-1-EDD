@@ -5,11 +5,7 @@
 package Main;
 
 import EDD.Grafo;
-import EDD.Lista;
-import EDD.Nodo;
-import Interfaces.Bienvenida;
-import Interfaces.JPanelMenu;
-import javax.swing.JFrame;
+import Ventanas.Bienvenida;
 
 /**
  *
@@ -18,8 +14,7 @@ import javax.swing.JFrame;
 public class Main {
     
     public static void main(String[] args){
-        
-        Bienvenida v1 = new Bienvenida(new Grafo());
+       Bienvenida b = new Bienvenida(null);
 
         
     }
